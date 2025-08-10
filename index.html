@@ -6,116 +6,127 @@
 <title>The Quiet Power of Funke</title>
 <style>
     body {
-        font-family: 'Segoe UI', Tahoma, sans-serif;
-        background-color: #fff0f6;
+        font-family: 'Georgia', serif;
         margin: 0;
         padding: 0;
-        color: #4a4a4a;
+        background: #fafafa;
+        color: #333;
+        line-height: 1.7;
     }
     header {
-        background-color: #ff99cc;
+        background: black;
+        color: white;
         padding: 20px;
         text-align: center;
-        color: white;
-        font-size: 1.8em;
+        font-size: 2rem;
         font-weight: bold;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
     }
     main {
         max-width: 900px;
-        margin: 40px auto;
+        margin: auto;
         background: white;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        line-height: 1.8;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
-    h1, h2, h3 {
-        color: #ff66a3;
-        font-family: 'Georgia', serif;
-    }
-    p {
-        margin-bottom: 1em;
-    }
-    /* Email Signup Styling */
-    .email-signup {
-        margin-top: 40px;
-        text-align: center;
-        background: #ffb3d9;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        animation: popIn 0.8s ease forwards;
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    .email-signup h3 {
-        font-size: 1.6em;
-        color: #fff;
+    h1 {
+        font-size: 2.5rem;
         margin-bottom: 10px;
     }
-    .email-signup p {
-        color: #fff;
-        margin-bottom: 20px;
-        font-size: 1.1em;
-    }
-    .email-signup input[type="email"] {
-        padding: 12px;
-        width: 60%;
-        max-width: 300px;
-        border-radius: 6px;
-        border: none;
-        margin-right: 10px;
-        font-size: 1em;
-    }
-    .email-signup button {
-        padding: 12px 20px;
-        border: none;
-        background-color: #ff3399;
-        color: white;
-        font-size: 1em;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: background 0.3s, transform 0.2s;
-    }
-    .email-signup button:hover {
-        background-color: #e60073;
-        transform: translateY(-2px);
-    }
-    @keyframes popIn {
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-    footer {
-        background: #ff99cc;
-        text-align: center;
-        color: white;
-        padding: 15px;
+    h2 {
+        font-size: 1.8rem;
         margin-top: 40px;
+        color: #b30059;
+    }
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 1em;
+    }
+    /* Next Article Section */
+    .next-article {
+        margin-top: 50px;
+        padding: 20px;
+        background: #f5f5f5;
+        border-left: 5px solid #b30059;
+    }
+    .next-article h3 {
+        margin-top: 0;
+        font-size: 1.4rem;
+        color: #b30059;
+    }
+    .next-article a {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .next-article a:hover {
+        text-decoration: underline;
+    }
+
+    /* Pop-up Email Modal */
+    .email-modal {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+    .email-content {
+        background: white;
+        padding: 30px;
+        max-width: 400px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        animation: pop 0.3s ease-out;
+    }
+    @keyframes pop {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+    .email-content h3 {
+        margin-top: 0;
+        color: #b30059;
+    }
+    .email-content input[type="email"] {
+        padding: 10px;
+        width: 80%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 15px 0;
+    }
+    .email-content button {
+        padding: 10px 20px;
+        background: #b30059;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .email-content button:hover {
+        background: #800040;
+    }
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
     }
 </style>
-<script>
-    // Show email box when it comes into view
-    document.addEventListener("scroll", function() {
-        const signup = document.querySelector(".email-signup");
-        const rect = signup.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            signup.style.animationPlayState = "running";
-        }
-    });
-</script>
 </head>
 <body>
 
-<header>
-    The Quiet Power of Women
-</header>
+<header>The Quiet Power of Women</header>
 
 <main>
     <h1>The Quiet Power of Funke</h1>
-    <p>“Does anyone have questions’’? The speaker’s voice jolted Funke back to training room.  She had questions but she would rather freeze to death at the North Pole than stand to speak.
+    <p>““Does anyone have questions’’? The speaker’s voice jolted Funke back to training room.  She had questions but she would rather freeze to death at the North Pole than stand to speak.
 
 Funke rarely spoke up in meetings. She was shy, she was restrained and quiet and thoughtful and she believed her quiet voice didn’t carry weight in a world that rewarded loudness.
 
@@ -127,8 +138,10 @@ What happened? Hell did not freeze over. Instead, she started gaining respect an
 You don’t have to shout to be confident or powerful.
 We are learning how to be softly powerful—and how calm is not weakness, but quiet strength. Join the conversation and our community of women rewriting the rules.
 </p>
-    <h2>That Lady is doing “too much”</h2>
-    <p>Toluwani heard it clearly. She had left the meeting shortly before it ended to use the bathroom. Right before she opened the door, she heard Clara and Tope come into the bathroom.  “I don’t like that girl, abeg. She does too much”. Is she the only here? Always talking and complaining.
+   
+
+    <h2>That Lady is Doing “Too Much”</h2>
+    <p>TToluwani heard it clearly. She had left the meeting shortly before it ended to use the bathroom. Right before she opened the door, she heard Clara and Tope come into the bathroom.  “I don’t like that girl, abeg. She does too much”. Is she the only here? Always talking and complaining.
 
 Was it true? Maybe it was. Toluwani would always want to be clear on assignments and instructions. She gave detailed answers. She wanted to follow through on projects and be thorough. She would ask questions people were scared to ask. Maybe she really was doing too much.
 
@@ -140,22 +153,37 @@ She didn’t change herself. She learned. She learned how to be calm. She learne
 You’re not too much. You’re just waiting for the right space to bloom.
 Join our  community and next live video where we talk about letting go of “too much” and embracing bold womanhood without apology.
 </p>
-    
 
-    <!-- Catchy Email Signup -->
-    <div class="email-signup">
-        <h3>✨ Don’t Just Read. Join the Sisterhood. ✨</h3>
-        <p>Real talk, real growth, real women. Get exclusive stories, events & power-boost tips straight to your inbox.</p>
-        <form>
-            <input type="email" placeholder="Your email address" required>
-            <button type="submit">I’m In 💌</button>
-        </form>
+    <div class="next-article">
+        <h3>Next Article</h3>
+        <a href="#">The Circle That Changed Her Life →</a>
     </div>
 </main>
 
-<footer>
-    © 2025 The Quiet Power of Women. All rights reserved.
-</footer>
+<!-- Email Signup Modal -->
+<div class="email-modal" id="emailModal">
+    <div class="close-btn" id="closeModal">&times;</div>
+    <div class="email-content">
+        <h3>Join Our Community</h3>
+        <p>Enter your email to receive exclusive stories and invites.</p>
+        <input type="email" placeholder="Your email address" required>
+        <br>
+        <button>Join Now</button>
+    </div>
+</div>
+
+<script>
+    // Show modal after 5 seconds
+    window.onload = function() {
+        setTimeout(function() {
+            document.getElementById('emailModal').style.display = 'flex';
+        }, 5000);
+    };
+    // Close modal
+    document.getElementById('closeModal').onclick = function() {
+        document.getElementById('emailModal').style.display = 'none';
+    };
+</script>
 
 </body>
 </html>
