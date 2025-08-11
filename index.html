@@ -1,128 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>The Quiet Power of Funke</title>
 <style>
-    body {
-        font-family: 'Georgia', serif;
-        margin: 0;
-        padding: 0;
-        background: #fafafa;
-        color: #333;
-        line-height: 1.7;
-    }
-    header {
-        background: linear-gradient(to right, #FFC0CB, #FF69B4);
-        color: gray;
-        padding: 20px;
-        text-align: center;
-        font-size: 2rem;
-        font-weight: bold;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-    main {
-        max-width: 900px;
-        margin: auto;
-        background: white;
-        padding: 40px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    }
-    h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-    }
-    p {
-        font-size: 1.1rem;
-        margin-bottom: 1em;
-    }
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 20px auto;
-        border-radius: 8px;
-    }
-    /* Next Article Section */
-    .next-article {
-        margin-top: 50px;
-        padding: 20px;
-        background: #f5f5f5;
-        border-left: 5px solid #b30059;
-    }
-    .next-article h3 {
-        margin-top: 0;
-        font-size: 1.4rem;
-        color: #b30059;
-    }
-    .next-article a {
-        color: black;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    .next-article a:hover {
-        text-decoration: underline;
-    }
+  :root{
+    --accent:#b30059;
+    --accent-2:#ff69b4;
+    --bg:#fafafa;
+    --card:#fff;
+    --muted:#777;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: Georgia, "Times New Roman", serif;
+    background:var(--bg);
+    color:#222;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.65;
+  }
 
-    /* Pop-up Email Modal */
-    .email-modal {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.6);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-    }
-    .email-content {
-        background: white;
-        padding: 30px;
-        max-width: 400px;
-        text-align: center;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        animation: pop 0.3s ease-out;
-        position: relative;
-    }
-    @keyframes pop {
-        from { transform: scale(0.8); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-    }
-    .email-content h3 {
-        margin-top: 0;
-        color: #b30059;
-    }
-    .email-content input[type="email"] {
-        padding: 10px;
-        width: 80%;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin: 15px 0;
-    }
-    .email-content button {
-        padding: 10px 20px;
-        background: #b30059;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-    .email-content button:hover {
-        background: #800040;
-    }
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 1.5rem;
-        color: #b30059;
-        cursor: pointer;
-        font-weight: bold;
-    }
+  header{
+    background: linear-gradient(90deg,#FFC0CB 0%, var(--accent-2) 100%);
+    color:#222;
+    padding:26px 18px;
+    text-align:center;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:20px;
+  }
+
+  main{
+    max-width:920px;
+    margin:34px auto;
+    background:var(--card);
+    padding:42px;
+    border-radius:10px;
+    box-shadow:0 8px 30px rgba(16,16,16,0.06);
+  }
+
+  h1{
+    font-size:36px;
+    margin:0 0 12px 0;
+    color: #111;
+  }
+  p.lead{
+    margin:0 0 22px 0;
+    color:var(--muted);
+    font-size:18px;
+  }
+  h2{
+    color:var(--accent);
+    margin-top:36px;
+    font-size:22px;
+  }
+  p{ margin-bottom:1.05em; font-size:16px; color:#333; }
+
+  img.feature{
+    width:100%;
+    height:auto;
+    display:block;
+    margin:22px 0;
+    border-radius:8px;
+    object-fit:cover;
+    box-shadow:0 6px 18px rgba(17,17,17,0.06);
+  }
+
+  /* Next Article preview */
+  .next-article{
+    margin-top:40px;
+    padding:18px;
+    background:#f7f7f7;
+    border-left:5px solid var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    border-radius:6px;
+  }
+  .next-article .meta{
+    flex:1;
+  }
+  .next-article h3{ margin:0; color:var(--accent); font-size:18px; }
+  .next-article p{ margin:6px 0 0 0; color:#444; font-size:14px; }
+  .next-article .cta{
+    text-decoration:none;
+    color:white;
+    background:var(--accent);
+    padding:10px 14px;
+    border-radius:6px;
+    font-weight:700;
+    box-shadow:0 6px 18px rgba(179,0,89,0.15);
+  }
+  .next-article .cta:hover{ background:#800040 }
+
+  /* modal base */
+  .modal {
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,0.6);
+    z-index:1200;
+    padding:24px;
+  }
+  .modal.show{ display:flex; }
+  .modal .card{
+    width:100%;
+    max-width:820px;
+    max-height:90vh;
+    overflow:auto;
+    background:var(--card);
+    border-radius:10px;
+    padding:28px;
+    position:relative;
+    box-shadow:0 24px 60px rgba(0,0,0,0.35);
+    animation:pop .18s ease-out;
+  }
+  @keyframes pop{ from{ transform:translateY(8px) scale(.98); opacity:0 } to { transform:none; opacity:1 } }
+
+  .modal .close{
+    position:sticky;
+    top:6px;
+    right:6px;
+    float:right;
+    background:none;
+    border:0;
+    color:var(--muted);
+    font-size:28px;
+    cursor:pointer;
+  }
+
+  /* email modal specifics */
+  .email-content h3{ color:var(--accent); margin:0 0 8px 0; }
+  .email-content p{ margin:0 0 12px 0; color:#444 }
+  .email-input{ width:100%; padding:12px 10px; border-radius:6px; border:1px solid #ddd; margin-bottom:12px; font-size:15px }
+  .btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    border:0;
+    padding:11px 16px;
+    border-radius:8px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .btn.secondary{ background:#eee; color:#333; }
+
+  /* small screens tweaks */
+  @media (max-width:600px){
+    header{ font-size:16px }
+    main{ padding:22px; margin:18px; }
+    h1{ font-size:26px }
+  }
 </style>
 </head>
 <body>
@@ -130,55 +165,153 @@
 <header>The Quiet Power of Women</header>
 
 <main>
-    <h1>The Quiet Power of Funke</h1>
-    <p>“Does anyone have questions?” The speaker’s voice jolted Funke back to the training room. She had questions but she would rather freeze to death at the North Pole than stand to speak.</p>
+  <h1>The Quiet Power of Funke</h1>
+  <p class="lead">You don’t have to be loud to be powerful — an intimate look at how calm confidence changes outcomes.</p>
 
-    <p>Funke rarely spoke up in meetings. She was shy, restrained, quiet, and thoughtful, and she believed her quiet voice didn’t carry weight in a world that rewarded loudness.</p>
+  <p>“Does anyone have questions?” The speaker’s voice jolted Funke back to the training room. She had questions, but she’d rather freeze to death at the North Pole than stand to speak.</p>
 
-    <p>She admired her brother’s wife, Eunice, the VP of a Fintech Company in Lagos. Eunice spoke to audiences with confidence and charm. No fear. Just confidence. Funke wanted to be that. She wanted to speak up without fear.</p>
+  <p>Funke rarely spoke up in meetings. She was shy, restrained, quiet and thoughtful, and she believed her quiet voice didn’t carry weight in a world that rewarded loudness.</p>
 
-    <img src="image.png" alt="Funke's story image">
+  <p>She admired her brother’s wife, Eunice — the VP of a fintech company in Lagos — who spoke to rooms with confidence and charm. No fear. Just confidence. Funke wanted that: to speak up without that lump of anxiety in her throat.</p>
 
-    <p>Funke also saw how people shivered and shrunk around loud and aggressive leaders. She knew she could never be that, but she desired to lead calmly without making people afraid. She began practicing calm assertiveness. She stopped stuttering, over-explaining, and speaking too fast. People began to listen.</p>
+  <!-- feature image - replace image.png with your image file -->
+  <img src="image.png" alt="Feature: The Quiet Power of Funke" class="feature">
 
-    <p>What happened? Hell did not freeze over. Instead, she started gaining respect — instantly. She became confident and gained admiration. You don’t have to shout to be powerful. Calm is not weakness, but quiet strength. Join our community of women rewriting the rules.</p>
+  <p>Funke noticed how people shivered around loud and aggressive personalities. She knew she could never be that, but she wanted to lead without coercion — to inspire rather than intimidate. So she started practicing quiet, calibrated assertiveness: she slowed her speech, stopped over-explaining, and trusted pauses as much as words.</p>
 
-    <div class="next-article">
-        <h3>Next Article</h3>
-        <a href="#">The Circle That Changed Her Life →</a>
+  <p>The result wasn’t theatrical — there was no cinematic transformation — but people began to listen. Respect arrived, subtly and then suddenly. You don’t have to shout to be powerful. Calm is not weakness; it’s quiet strength.</p>
+
+  <div class="next-article" aria-labelledby="next-title">
+    <div class="meta">
+      <h3 id="next-title">Next Article</h3>
+      <p>A sister story: how a circle of women helped one woman rise from heartbreak to fierce, calm confidence.</p>
     </div>
+    <a href="#" class="cta" id="openNext">Read →</a>
+  </div>
 </main>
 
-<!-- Email Signup Modal -->
-<div class="email-modal" id="emailModal">
-    <div class="email-content">
-        <div class="close-btn" id="closeModal">&times;</div>
-        <h3>Join Our Community</h3>
-        <p>Enter your email to receive exclusive stories and invites.</p>
-        <input type="email" placeholder="Your email address" required>
-        <br>
-        <button>Join Now</button>
+<!-- EMAIL MODAL (shows after 5s) -->
+<div class="modal" id="emailModal" aria-hidden="true">
+  <div class="card email-content" role="dialog" aria-modal="true" aria-label="Join community">
+    <button class="close" data-close="emailModal" aria-label="Close">&times;</button>
+    <h3>Join Our Community</h3>
+    <p>Get exclusive essays, live invites and short power-boosts — straight to your inbox.</p>
+    <input class="email-input" id="emailField" type="email" placeholder="Your email address" />
+    <div style="display:flex;gap:10px;justify-content:center">
+      <button class="btn" id="submitEmail">Join Now</button>
+      <button class="btn secondary" data-close="emailModal">Maybe Later</button>
     </div>
+  </div>
+</div>
+
+<!-- NEXT ARTICLE MODAL (opens on click) -->
+<div class="modal" id="nextModal" aria-hidden="true">
+  <div class="card" role="dialog" aria-modal="true" aria-label="Next article">
+    <button class="close" data-close="nextModal" aria-label="Close">&times;</button>
+
+    <!-- Next article content (keeps page single-file) -->
+    <h1 style="font-size:26px;margin-top:0;color:var(--accent)">Newsletter 5: “The Circle That Changed Her Life”</h1>
+
+    <p>Every strong woman needs a circle.</p>
+
+    <p>After her divorce, Maya felt hollow and sick with grief. Her confidence had been shattered; she wanted nothing to do with life’s noise. The TV made her chest ache; the phone’s ring felt like an attack. Anger and depression ate at her days.</p>
+
+    <p>And yet she had every right to be furious. Dennis left with the old line — “It’s not you, it’s me” — after she’d done what she could. She felt betrayed by the life she’d planned.</p>
+
+    <p>Then she found a women’s circle. Not therapy, not a formal program — sisterhood: women holding space, listening, showing up. That circle reminded her of who she was. She survived. She glowed up. She found joy again.</p>
+
+    <p>If you’re craving that circle, join our next live. We’re a movement of women lifting each other into confidence, clarity, and calm. Ready to walk with women who see you, support you, and speak your language?</p>
+
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn" id="joinFromNext">Join the Circle</button>
+      <button class="btn secondary" data-close="nextModal">Close</button>
+    </div>
+  </div>
 </div>
 
 <script>
-    // Show modal after 5 seconds
-    window.onload = function() {
-        setTimeout(function() {
-            document.getElementById('emailModal').style.display = 'flex';
-        }, 5000);
-    };
-    // Close modal
-    document.getElementById('closeModal').onclick = function() {
-        document.getElementById('emailModal').style.display = 'none';
-    };
-    // Close modal when clicking outside content
-    window.onclick = function(event) {
-        const modal = document.getElementById('emailModal');
-        if (event.target === modal) {
-            modal.style.display = 'none';
+  (function(){
+    // helpers
+    const qs = s => document.querySelector(s);
+    const qsa = s => Array.from(document.querySelectorAll(s));
+    function openModal(id){
+      const m = document.getElementById(id);
+      if(!m) return;
+      m.classList.add('show');
+      m.setAttribute('aria-hidden','false');
+      // prevent background scroll
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id){
+      const m = document.getElementById(id);
+      if(!m) return;
+      m.classList.remove('show');
+      m.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    // show email modal after 5s
+    window.addEventListener('load', function(){
+      setTimeout(() => {
+        openModal('emailModal');
+      }, 5000);
+    });
+
+    // open next article modal
+    qs('#openNext').addEventListener('click', function(evt){
+      evt.preventDefault();
+      openModal('nextModal');
+    });
+
+    // delegated close buttons
+    qsa('[data-close]').forEach(btn=>{
+      btn.addEventListener('click', function(){
+        const target = this.getAttribute('data-close');
+        closeModal(target);
+      });
+    });
+
+    // close when clicking outside card
+    qsa('.modal').forEach(modal=>{
+      modal.addEventListener('click', function(e){
+        if(e.target === modal){
+          modal.classList.remove('show');
+          modal.setAttribute('aria-hidden','true');
+          document.body.style.overflow = '';
         }
-    };
+      });
+    });
+
+    // close on Escape
+    window.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        qsa('.modal.show').forEach(m=>{
+          m.classList.remove('show');
+          m.setAttribute('aria-hidden','true');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+
+    // fake email submit (replace with real endpoint later)
+    qs('#submitEmail').addEventListener('click', function(){
+      const email = qs('#emailField').value.trim();
+      if(!email || !email.includes('@')){
+        alert('Please enter a valid email address.');
+        return;
+      }
+      // here: you would send to your server or a service like Mailchimp/Formspree
+      alert('Thanks — you are signed up! (This demo does not actually store emails.)');
+      closeModal('emailModal');
+    });
+
+    // join button inside next modal wires to open email modal
+    qs('#joinFromNext').addEventListener('click', function(){
+      closeModal('nextModal');
+      setTimeout(()=> openModal('emailModal'), 220);
+    });
+
+  })();
 </script>
 
 </body>
