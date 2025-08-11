@@ -34,14 +34,16 @@
         font-size: 2.5rem;
         margin-bottom: 10px;
     }
-    h2 {
-        font-size: 1.8rem;
-        margin-top: 40px;
-        color: #b30059;
-    }
     p {
         font-size: 1.1rem;
         margin-bottom: 1em;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+        border-radius: 8px;
     }
     /* Next Article Section */
     .next-article {
@@ -73,6 +75,7 @@
         display: none;
         justify-content: center;
         align-items: center;
+        z-index: 1000;
     }
     .email-content {
         background: white;
@@ -82,6 +85,7 @@
         border-radius: 10px;
         box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         animation: pop 0.3s ease-out;
+        position: relative;
     }
     @keyframes pop {
         from { transform: scale(0.8); opacity: 0; }
@@ -112,11 +116,12 @@
     }
     .close-btn {
         position: absolute;
-        top: 15px;
-        right: 20px;
+        top: 10px;
+        right: 15px;
         font-size: 1.5rem;
-        color: white;
+        color: #b30059;
         cursor: pointer;
+        font-weight: bold;
     }
 </style>
 </head>
@@ -126,34 +131,17 @@
 
 <main>
     <h1>The Quiet Power of Funke</h1>
-    <p>““Does anyone have questions’’? The speaker’s voice jolted Funke back to training room.  She had questions but she would rather freeze to death at the North Pole than stand to speak.
+    <p>“Does anyone have questions?” The speaker’s voice jolted Funke back to the training room. She had questions but she would rather freeze to death at the North Pole than stand to speak.</p>
 
-Funke rarely spoke up in meetings. She was shy, she was restrained and quiet and thoughtful and she believed her quiet voice didn’t carry weight in a world that rewarded loudness.
+    <p>Funke rarely spoke up in meetings. She was shy, restrained, quiet, and thoughtful, and she believed her quiet voice didn’t carry weight in a world that rewarded loudness.</p>
 
-She admired her brother’s wife, Eunice. Eunice was the VP of a Fintech Company in Lagos. Eunice was always speaking to an audience with confidence and charm. No fear. Just confidence. She wanted to be that. She wanted to speak up without fear.</p>
-         <img src="image.png">
+    <p>She admired her brother’s wife, Eunice, the VP of a Fintech Company in Lagos. Eunice spoke to audiences with confidence and charm. No fear. Just confidence. Funke wanted to be that. She wanted to speak up without fear.</p>
 
-<p>Funke also saw how people shivered and shrunk around loud and aggressive people, knowing she could never be that but desiring to lead calmly and not see people scared for their lives in her presence.
-Then she started practicing calm assertiveness. She stopped stuttering. She stopped over-explaining. She stopped speaking too fast. Then, People began to listen. 
-What happened? Hell did not freeze over. Instead, she started gaining respect and that respect was Instant. She became confident and gained the admiration of other people.
-You don’t have to shout to be confident or powerful.
-We are learning how to be softly powerful—and how calm is not weakness, but quiet strength. Join the conversation and our community of women rewriting the rules.
-</p>
-   
+    <img src="image.png" alt="Funke's story image">
 
-    <h2>That Lady is Doing “Too Much”</h2>
-    <p>TToluwani heard it clearly. She had left the meeting shortly before it ended to use the bathroom. Right before she opened the door, she heard Clara and Tope come into the bathroom.  “I don’t like that girl, abeg. She does too much”. Is she the only here? Always talking and complaining.
+    <p>Funke also saw how people shivered and shrunk around loud and aggressive leaders. She knew she could never be that, but she desired to lead calmly without making people afraid. She began practicing calm assertiveness. She stopped stuttering, over-explaining, and speaking too fast. People began to listen.</p>
 
-Was it true? Maybe it was. Toluwani would always want to be clear on assignments and instructions. She gave detailed answers. She wanted to follow through on projects and be thorough. She would ask questions people were scared to ask. Maybe she really was doing too much.
-
-Toluwani was always told she was "too loud", "too ambitious", and "too opinionated, too “aggressive”. Of course, she started feeling like everything she did was too much so she intentional started shrinking herself, her voice, her appearance, her thoughts, her ideas her needs.
-And did she regret every minute she shrunk herself.... YES! She felt like a chunk of her soul was missing. She became depressed. Until one day, she came across an old video where she heard a man saying,“You are not too much” You are unique” You are what makes YOU! 
-She literally “woke up” and realized being "too much" was exactly what the world needed. Things get done quickly when the “do too much” folks are involved.
-She didn’t change herself. She learned. She learned how to be calm. She learned how to control her emotions before speaking. She learned to say “no” without guilt and “yes” without fear. And something amazing happened, her calm be came her power. Her voice? Unshakable. Her presence? Magnetic.
-
-You’re not too much. You’re just waiting for the right space to bloom.
-Join our  community and next live video where we talk about letting go of “too much” and embracing bold womanhood without apology.
-</p>
+    <p>What happened? Hell did not freeze over. Instead, she started gaining respect — instantly. She became confident and gained admiration. You don’t have to shout to be powerful. Calm is not weakness, but quiet strength. Join our community of women rewriting the rules.</p>
 
     <div class="next-article">
         <h3>Next Article</h3>
@@ -163,8 +151,8 @@ Join our  community and next live video where we talk about letting go of “too
 
 <!-- Email Signup Modal -->
 <div class="email-modal" id="emailModal">
-    <div class="close-btn" id="closeModal">&times;</div>
     <div class="email-content">
+        <div class="close-btn" id="closeModal">&times;</div>
         <h3>Join Our Community</h3>
         <p>Enter your email to receive exclusive stories and invites.</p>
         <input type="email" placeholder="Your email address" required>
@@ -183,6 +171,13 @@ Join our  community and next live video where we talk about letting go of “too
     // Close modal
     document.getElementById('closeModal').onclick = function() {
         document.getElementById('emailModal').style.display = 'none';
+    };
+    // Close modal when clicking outside content
+    window.onclick = function(event) {
+        const modal = document.getElementById('emailModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
     };
 </script>
 
