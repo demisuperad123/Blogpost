@@ -368,132 +368,155 @@
     <div class="notification" id="notification">Story published successfully!</div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // All stories data
-            const articles = [
-                {
-                    title: "The Quiet Power of Funke",
-                    content: `<p>"Does anyone have questions?" The speaker's voice jolted Funke back to the training room. She had questions, but she'd rather freeze to death at the North Pole than stand to speak.</p>
-                             <p>Funke rarely spoke up in meetings. She was shy, restrained, quiet and thoughtful, and she believed her quiet voice didn't carry weight in a world that rewarded loudness.</p>
-                             <p>She admired her brother's wife, Eunice,the VP of a fintech company in Lagos, who spoke to rooms with confidence and charm. No fear. Just confidence. Funke wanted that: to speak up without that lump of anxiety in her throat.</p>
-                             <p>Funke noticed how people shivered around loud and aggressive personalities. She knew she could never be that, but she wanted to lead without coercion — to inspire rather than intimidate. So she started practicing quiet, calibrated assertiveness: she slowed her speech, stopped over-explaining, and trusted pauses as much as words.</p>
-                             <p>The result wasn't theatrical — there was no cinematic transformation, but people began to listen. Respect arrived, subtly and then suddenly. You don't have to shout to be powerful. Calm is not weakness; it's quiet strength.</p>`
-                },
-                {
-                    title: "When you are 'too much'",
-                    content: `<p>Toluwani heard it clearly. She had left the meeting shortly before it ended to use the bathroom. Right before she opened the door, she heard Clara and Tope come into the bathroom. "I don't like that girl, abeg. She does too much". Is she the only here? Always talking and complaining.</p>
-                             <p>Was it true? Maybe it was. Toluwani would always want to be clear on assignments and instructions. She gave detailed answers. She wanted to follow through on projects and be thorough. She would ask questions people were scared to ask. Maybe she really was doing too much.</p>
-                             <p>Toluwani was always told she was "too loud", "too ambitious", and "too opinionated, too aggressive". Of course, she started feeling like everything she did was too much so she intentionally started shrinking herself, her voice, her appearance, her thoughts, her ideas her needs.</p>
-                             <p>And did she regret every minute she shrank herself.... YES! She felt like a chunk of her soul was missing. She became depressed. Until one day, she came across an old video where she heard a man saying, "You are not too much. You are unique. You are what makes YOU!"</p>
-                             <div class="quote">
-                                You are not too much. You are unique. You are what makes YOU!
-                             </div>
-                             <p>She literally "woke up" and realized being "too much" was exactly what the world needed. Things get done quickly when the "do too much" folks are involved.</p>
-                             <p>She didn't change herself. She learned. She learned how to be calm. She learned how to control her emotions before speaking. She learned to say "no" without guilt and "yes" without fear. And something amazing happened, her calm became her power. Her voice? Unshakable. Her presence? Magnetic.</p>
-                             <div class="quote">
-                                You're not too much. You're just waiting for the right space to bloom.
-                             </div>`
-                },
-                {
-                    title: "The Circle That Changed Her Life",
-                    content: `<p>Every strong woman needs a circle.</p>
-                             <p>After her divorce, Chikaima always felt sick in the stomach. Her confidence was shattered. She just wanted to be alone. She didn't want to even take out the trash.</p>
-                             <p>She hated the sound of the TV. Her phone ringing infuriated her. Anger and depression were eating her up.</p>
-                             <p>Ohhh! She was angry and had every right to be. Dennis walked out of the marriage with "It is not you, it's me". She did everything right. She bent over and he still walked away.</p>
-                             <p>Until she stumbled upon a women's community. It wasn't therapy. It wasn't coaching. It was sisterhood. Women holding space for each other and rising together. That circle reminded her of who she was.</p>
-                             <div class="quote">
-                                Sometimes the strongest thing a woman can do is to let other women help her rise.
-                             </div>
-                             <p>She survived. She glowed up. She loved her sister friends. She loved life.</p>
-                             <p>If you're craving a circle that gets it, join our next live video. We're not just a page. We're a movement of women lifting each other into confidence, clarity, and calm.</p>
-                             <div class="quote">
-                                Ready to walk with women who see you, support you, and join us?
-                             </div>`
-                }
-            ];
-
-            let currentArticleIndex = 0;
-            const nextArticleBtn = document.getElementById('nextArticleBtn');
-            const articleTitle = document.getElementById('current-title');
-            const articleContent = document.getElementById('current-content');
-            const articleCounter = document.getElementById('articleCounter');
-            const adminToggle = document.getElementById('adminToggle');
-            const adminPanel = document.getElementById('adminPanel');
-            const articleForm = document.getElementById('articleForm');
-            const notification = document.getElementById('notification');
-
-            // Display initial article
-            displayArticle(currentArticleIndex);
-
-            // Next article button event listener
-            nextArticleBtn.addEventListener('click', function() {
-                currentArticleIndex = (currentArticleIndex + 1) % articles.length;
-                displayArticle(currentArticleIndex);
-                
-                // Add a slight animation effect
-                document.querySelector('.article-container').style.opacity = '0';
-                setTimeout(() => {
-                    document.querySelector('.article-container').style.opacity = '1';
-                }, 300);
-            });
-
-            // Admin panel toggle
-            adminToggle.addEventListener('click', function() {
-                if (adminPanel.style.display === 'block') {
-                    adminPanel.style.display = 'none';
-                    adminToggle.textContent = 'Admin Panel';
-                } else {
-                    adminPanel.style.display = 'block';
-                    adminToggle.textContent = 'Close Admin Panel';
-                }
-            });
-
-            // Form submission event listener
-            articleForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const title = document.getElementById('articleTitle').value;
-                const content = document.getElementById('articleContent').value;
-                
-                // Add the new article to the articles array
-                articles.push({
-                    title: title,
-                    content: `<p>${content.replace(/\n/g, '</p><p>')}</p>`
-                });
-                
-                // Reset form
-                articleForm.reset();
-                
-                // Show notification
-                showNotification('Story published successfully!');
-                
-                // Update the article counter
-                articleCounter.textContent = `Story ${currentArticleIndex + 1} of ${articles.length}`;
-            });
-
-            function displayArticle(index) {
-                const article = articles[index];
-                articleTitle.textContent = article.title;
-                articleContent.innerHTML = article.content;
-                articleCounter.textContent = `Story ${index + 1} of ${articles.length}`;
-                
-                // Update the button text if it's the last article
-                if (index === articles.length - 1) {
-                    nextArticleBtn.textContent = 'Back to First Story →';
-                } else {
-                    nextArticleBtn.textContent = 'Next Story →';
-                }
+    document.addEventListener('DOMContentLoaded', function() {
+        // All stories data
+        const articles = [
+            {
+                title: "The Quiet Power of Funke",
+                content: `<p>"Does anyone have questions?" The speaker's voice jolted Funke back to the training room. She had questions, but she'd rather freeze to death at the North Pole than stand to speak.</p>
+                         <p>Funke rarely spoke up in meetings. She was shy, restrained, quiet and thoughtful, and she believed her quiet voice didn't carry weight in a world that rewarded loudness.</p>
+                         <p>She admired her brother's wife, Eunice,the VP of a fintech company in Lagos, who spoke to rooms with confidence and charm. No fear. Just confidence. Funke wanted that: to speak up without that lump of anxiety in her throat.</p>
+                         <p>Funke noticed how people shivered around loud and aggressive personalities. She knew she could never be that, but she wanted to lead without coercion — to inspire rather than intimidate. So she started practicing quiet, calibrated assertiveness: she slowed her speech, stopped over-explaining, and trusted pauses as much as words.</p>
+                         <p>The result wasn't theatrical — there was no cinematic transformation, but people began to listen. Respect arrived, subtly and then suddenly. You don't have to shout to be powerful. Calm is not weakness; it's quiet strength.</p>`
+            },
+            {
+                title: "When you are 'too much'",
+                content: `<p>Toluwani heard it clearly. She had left the meeting shortly before it ended to use the bathroom. Right before she opened the door, she heard Clara and Tope come into the bathroom. "I don't like that girl, abeg. She does too much". Is she the only here? Always talking and complaining.</p>
+                         <p>Was it true? Maybe it was. Toluwani would always want to be clear on assignments and instructions. She gave detailed answers. She wanted to follow through on projects and be thorough. She would ask questions people were scared to ask. Maybe she really was doing too much.</p>
+                         <p>Toluwani was always told she was "too loud", "too ambitious", and "too opinionated, too aggressive". Of course, she started feeling like everything she did was too much so she intentionally started shrinking herself, her voice, her appearance, her thoughts, her ideas her needs.</p>
+                         <p>And did she regret every minute she shrank herself.... YES! She felt like a chunk of her soul was missing. She became depressed. Until one day, she came across an old video where she heard a man saying, "You are not too much. You are unique. You are what makes YOU!"</p>
+                         <div class="quote">
+                            You are not too much. You are unique. You are what makes YOU!
+                         </div>
+                         <p>She literally "woke up" and realized being "too much" was exactly what the world needed. Things get done quickly when the "do too much" folks are involved.</p>
+                         <p>She didn't change herself. She learned. She learned how to be calm. She learned how to control her emotions before speaking. She learned to say "no" without guilt and "yes" without fear. And something amazing happened, her calm became her power. Her voice? Unshakable. Her presence? Magnetic.</p>
+                         <div class="quote">
+                            You're not too much. You're just waiting for the right space to bloom.
+                         </div>`
+            },
+            {
+                title: "The Circle That Changed Her Life",
+                content: `<p>Every strong woman needs a circle.</p>
+                         <p>After her divorce, Chikaima always felt sick in the stomach. Her confidence was shattered. She just wanted to be alone. She didn't want to even take out the trash.</p>
+                         <p>She hated the sound of the TV. Her phone ringing infuriated her. Anger and depression were eating her up.</p>
+                         <p>Ohhh! She was angry and had every right to be. Dennis walked out of the marriage with "It is not you, it's me". She did everything right. She bent over and he still walked away.</p>
+                         <p>Until she stumbled upon a women's community. It wasn't therapy. It wasn't coaching. It was sisterhood. Women holding space for each other and rising together. That circle reminded her of who she was.</p>
+                         <div class="quote">
+                            Sometimes the strongest thing a woman can do is to let other women help her rise.
+                         </div>
+                         <p>She survived. She glowed up. She loved her sister friends. She loved life.</p>
+                         <p>If you're craving a circle that gets it, join our next live video. We're not just a page. We're a movement of women lifting each other into confidence, clarity, and calm.</p>
+                         <div class="quote">
+                            Ready to walk with women who see you, support you, and join us?
+                         </div>`
             }
+        ];
 
-            function showNotification(message) {
-                notification.textContent = message;
-                notification.classList.add('show');
-                
-                setTimeout(function() {
-                    notification.classList.remove('show');
-                }, 3000);
+        let currentArticleIndex = 0;
+        const nextArticleBtn = document.getElementById('nextArticleBtn');
+        const articleTitle = document.getElementById('current-title');
+        const articleContent = document.getElementById('current-content');
+        const articleCounter = document.getElementById('articleCounter');
+        const adminToggle = document.getElementById('adminToggle');
+        const adminPanel = document.getElementById('adminPanel');
+        const articleForm = document.getElementById('articleForm');
+        const notification = document.getElementById('notification');
+
+        // Display initial article
+        displayArticle(currentArticleIndex);
+
+        // Next article button event listener
+        nextArticleBtn.addEventListener('click', function() {
+            currentArticleIndex = (currentArticleIndex + 1) % articles.length;
+            displayArticle(currentArticleIndex);
+            
+            // Add a slight animation effect
+            document.querySelector('.article-container').style.opacity = '0';
+            setTimeout(() => {
+                document.querySelector('.article-container').style.opacity = '1';
+            }, 300);
+        });
+
+        // Admin panel toggle
+        adminToggle.addEventListener('click', function() {
+            if (adminPanel.style.display === 'block') {
+                adminPanel.style.display = 'none';
+                adminToggle.textContent = 'Admin Panel';
+            } else {
+                adminPanel.style.display = 'block';
+                adminToggle.textContent = 'Close Admin Panel';
             }
         });
-    </script>
+
+        // Form submission event listener
+        articleForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('articleTitle').value;
+            const content = document.getElementById('articleContent').value;
+            
+            // Add the new article to the articles array
+            articles.push({
+                title: title,
+                content: `<p>${content.replace(/\n/g, '</p><p>')}</p>`
+            });
+            
+            // Reset form
+            articleForm.reset();
+            
+            // Show notification
+            showNotification('Story published successfully!');
+            
+            // Update the article counter
+            articleCounter.textContent = `Story ${currentArticleIndex + 1} of ${articles.length}`;
+        });
+
+        function displayArticle(index) {
+            const article = articles[index];
+            articleTitle.textContent = article.title;
+            articleContent.innerHTML = article.content;
+            articleCounter.textContent = `Story ${index + 1} of ${articles.length}`;
+            
+            // Update the button text if it's the last article
+            if (index === articles.length - 1) {
+                nextArticleBtn.textContent = 'Back to First Story →';
+            } else {
+                nextArticleBtn.textContent = 'Next Story →';
+            }
+        }
+
+        function showNotification(message) {
+            notification.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(function() {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // 👇 IP check for Admin Panel access
+        async function checkIP() {
+            const allowedIP = "102.212.232.54"; // 👈 replace this with your real IP
+            try {
+                let res = await fetch("https://api.ipify.org?format=json");
+                let data = await res.json();
+                let userIP = data.ip;
+
+                console.log("Detected IP:", userIP);
+
+                if (userIP !== allowedIP) {
+                    // Hide admin controls if not allowed
+                    adminToggle.style.display = "none";
+                    adminPanel.style.display = "none";
+                }
+            } catch (err) {
+                adminToggle.style.display = "none";
+                adminPanel.style.display = "none";
+            }
+        }
+        checkIP(); // run on load
+    });
+</script>
+
 </body>
 </html>
